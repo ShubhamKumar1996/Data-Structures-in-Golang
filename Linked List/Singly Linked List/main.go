@@ -51,15 +51,15 @@ func (linkedList *LinkedList) LastNode() *Node {
 	if linkedList.headNode == nil {
 		return nil
 	}
-	var node *Node
-	for node = linkedList.headNode; node.nextNode != nil; node = node.nextNode {
-		continue
+	node := linkedList.headNode
+	for node.nextNode != nil {
+		node = node.nextNode
 	}
 	return node
 }
 
 func (linkedList *LinkedList) AddToEnd(newProperty int) {
-	var node = Node{property: newProperty}
+	var node = Node{newProperty, nil}
 	if linkedList.headNode == nil {
 		linkedList.headNode = &node
 	} else {
